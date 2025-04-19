@@ -7,7 +7,7 @@ type Props = {
   onUpload: (e: string) => any;
 };
 
-LR.registerBlocks(LR);
+ 
 
 const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();
