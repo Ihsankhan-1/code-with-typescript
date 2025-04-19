@@ -1,6 +1,6 @@
 'use server';
 
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import { db } from '@/lib/db';
 import { Client } from '@notionhq/client';
 

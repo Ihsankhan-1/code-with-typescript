@@ -1,7 +1,7 @@
 import { CONNECTIONS } from '@/lib/constant';
 import React from 'react';
 import ConnectionCard from './_components/connection-card';
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import { onDiscordConnect } from './_actions/discord-connection';
 import { onNotionConnect } from './_actions/notion-connection';
 import { onSlackConnect } from './_actions/slack-connection';
@@ -91,7 +91,7 @@ const Connections = async (props: Props) => {
     const user_info = await getUserData(user.id);
 
     //get user info with all connections
-    user_info?.connections.map(connection => {
+    user_info?.connections.map((connection: { type: string | number }) => {
       connections[connection.type] = true;
       return (connections[connection.type] = true);
     });

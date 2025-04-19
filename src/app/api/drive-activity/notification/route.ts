@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
           break;
 
         case 'Slack':
-          const channels = (flow.slackChannels ?? []).map(channel => ({
+          const channels = (flow.slackChannels ?? []).map((channel: any) => ({
             label: '',
             value: channel,
           }));

@@ -1,10 +1,10 @@
 'use server';
 import { Option } from '@/components/ui/multiple-selector';
 import { db } from '@/lib/db';
-import { auth, currentUser } from '@clerk/nextjs';
+import { auth, currentUser } from '@clerk/nextjs/server';
 
 export const getGoogleListener = async () => {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (userId) {
     const listener = await db.user.findUnique({
@@ -81,12 +81,12 @@ export const onCreateNodeTemplate = async (
       if (channelList) {
         //remove duplicates before insert
         const NonDuplicated = channelList.slackChannels.filter(
-          channel => channel !== channels![0].value
+          (channel: string) => channel !== channels![0].value
         );
 
         NonDuplicated!
-          .map(channel => channel)
-          .forEach(async channel => {
+          .map((channel: any) => channel)
+          .forEach(async (channel: any) => {
             await db.workflows.update({
               where: {
                 id: workflowId,

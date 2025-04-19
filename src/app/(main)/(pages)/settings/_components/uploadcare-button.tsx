@@ -1,13 +1,11 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import * as LR from '@uploadcare/file-uploader'
+import * as LR from '@uploadcare/file-uploader';
 import { useRouter } from 'next/navigation';
 
 type Props = {
   onUpload: (e: string) => any;
 };
-
- 
 
 const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();

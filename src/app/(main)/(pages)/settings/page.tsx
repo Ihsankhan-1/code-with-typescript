@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfilePicture from './_components/profile-picture';
 import { db } from '@/lib/db';
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import ProfileForm from '@/components/froms/profile-form';
 
 type Props = {};
