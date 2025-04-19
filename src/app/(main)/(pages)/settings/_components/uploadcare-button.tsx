@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import * as LR from '@uploadcare/blocks';
+import * as LR from '@uploadcare/file-uploader'
 import { useRouter } from 'next/navigation';
 
 type Props = {
