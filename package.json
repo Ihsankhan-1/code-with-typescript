@@ -51,7 +51,7 @@
     "react-resizable-panels": "^2.1.7",
     "reactflow": "^11.11.4",
     "sonner": "^2.0.3",
-    "stripe": "^12.0.0",
+    "stripe": "^18.0.0",
     "svix": "^1.62.0",
     "tailwind-merge": "^3.0.2",
     "tailwind-scrollbar-hide": "^2.0.0",

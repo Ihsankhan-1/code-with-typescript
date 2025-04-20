@@ -1,20 +1,20 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-})
+});
 
 // Dynamically import plugins using `await import()` to support ES modules
 const eslintConfig = await (async () => {
-  const typescriptEslintPlugin = (await import('@typescript-eslint/eslint-plugin')).default
-  const reactHooksPlugin = (await import('eslint-plugin-react-hooks')).default
-  const prettierPlugin = (await import('eslint-plugin-prettier')).default
-  const typescriptParser = (await import('@typescript-eslint/parser')).default
+  const typescriptEslintPlugin = (await import('@typescript-eslint/eslint-plugin')).default;
+  const reactHooksPlugin = (await import('eslint-plugin-react-hooks')).default;
+  const prettierPlugin = (await import('eslint-plugin-prettier')).default;
+  const typescriptParser = (await import('@typescript-eslint/parser')).default;
 
   return [
     // Base config
@@ -52,7 +52,7 @@ const eslintConfig = await (async () => {
         'prettier/prettier': ['warn', { endOfLine: 'auto' }],
       },
     },
-  ]
-})()
+  ];
+})();
 
-export default eslintConfig
+export default eslintConfig;
