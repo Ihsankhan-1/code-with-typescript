@@ -19,6 +19,7 @@ export default async function Page(props: { params: Params; searchParams: Search
   if (session_id) {
     const stripe = new Stripe(process.env.STRIPE_SECRET!, {
       typescript: true,
+      apiVersion: '2025-03-31.basil',
     });
 
     try {
