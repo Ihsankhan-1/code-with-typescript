@@ -1,6 +1,6 @@
 import React from 'react';
 import Stripe from 'stripe';
-import { currentUser } from '@clerk/nextjs/server'; 
+import { currentUser } from '@clerk/nextjs/server';
 import { db } from '@/lib/db';
 import BillingDashboard from './_components/billing-dashboard';
 
@@ -19,6 +19,7 @@ export default async function Page(props: { params: Params; searchParams: Search
   if (session_id) {
     const stripe = new Stripe(process.env.STRIPE_SECRET!, {
       typescript: true,
+      /** Specifies the Stripe API version to use for compatibility and consistent behavior */
       apiVersion: '2023-10-16',
     });
 

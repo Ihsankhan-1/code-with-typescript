@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
-import { auth } from '@clerk/nextjs/server';
+import { auth, clerkClient } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-import { clerkClient } from '@clerk/nextjs/server';
+
 import { v4 as uuidv4 } from 'uuid';
 import { db } from '@/lib/db';
 
@@ -16,10 +16,9 @@ export async function GET() {
   if (!userId) {
     return NextResponse.json({ message: 'User not found' });
   }
-  const clerk = clerkClient;
+  const clerk = await clerkClient();
   const clerkResponse = await clerk.users.getUserOauthAccessToken(userId, 'oauth_google');
-
-  const accessToken = clerkResponse[0].token;
+  const accessToken = clerkResponse.data[0].token;
   oauth2Client.setCredentials({
     access_token: accessToken,
   });
